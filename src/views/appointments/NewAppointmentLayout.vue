@@ -29,5 +29,7 @@ const route = useRoute();
       Resumen de la Cita
     </RouterLink>
   </nav>
-  <RouterView />
+  <div class="space-y-5">
+    <RouterView />
+  </div>
 </template>
