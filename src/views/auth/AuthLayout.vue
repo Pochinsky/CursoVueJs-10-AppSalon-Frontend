@@ -14,7 +14,7 @@ const authRoutes = [
       <RouterLink
         v-for="authRoute in authRoutes"
         :to="{ name: authRoute.name }"
-        class="uppercase font-bold text-white"
+        class="uppercase font-bold text-white hover:text-slate-200"
       >
         {{ authRoute.text }}
       </RouterLink>
