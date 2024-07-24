@@ -1,14 +1,25 @@
-import './assets/main.css'
+import { createApp } from "vue";
+import { createPinia } from "pinia";
+import { plugin, defaultConfig } from "@formkit/vue";
+import { useToast } from "vue-toast-notification";
+import config from "../formkit.config";
 
-import { createApp } from 'vue'
-import { createPinia } from 'pinia'
+import App from "./App.vue";
+import router from "./router";
 
-import App from './App.vue'
-import router from './router'
+import "./assets/main.css";
+import "vue-toast-notification/dist/theme-bootstrap.css";
 
-const app = createApp(App)
+const $toast = useToast({
+  duration: 5000,
+  position: "top-right",
+});
 
-app.use(createPinia())
-app.use(router)
+const app = createApp(App);
+app.provide("toast", $toast);
 
-app.mount('#app')
+app.use(createPinia());
+app.use(plugin, defaultConfig(config));
+app.use(router);
+
+app.mount("#app");
