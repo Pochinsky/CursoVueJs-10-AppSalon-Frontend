@@ -31,7 +31,7 @@ const handleSubmit = async ({ password_confirm, ...formData }) => {
     id="registerForm"
     type="form"
     :actions="false"
-    incomplete-message="No se pude crear la cuenta, revisa las notificaciones"
+    incomplete-message="No se pudo crear la cuenta, revisa las notificaciones"
     @submit="handleSubmit"
   >
     <FormKit
