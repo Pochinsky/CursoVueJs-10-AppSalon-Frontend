@@ -13,11 +13,12 @@
         </button>
       </div>
       <nav class="flex gap-2 items-center justify-end">
-        <button
+        <RouterLink
+          :to="{ name: 'my-appointments' }"
           class="p-3 text-gray-200 uppercase text-xs font-black rounded-lg hover:text-gray-300"
         >
           Mis Citas
-        </button>
+        </RouterLink>
         <RouterLink
           class="py-2 px-5 text-gray-200 uppercase text-xs font-extrabold rounded-lg bg-blue-600 hover:bg-blue-700"
           :to="{ name: 'new-appointment' }"
