@@ -52,16 +52,20 @@ const disableDate = (date) => {
           v-model="appointmentsStore.date"
         />
       </div>
-      <div class="flex-1 grid grid-cols-1 xl:grid-cols-2 gap-5 mt-10 lg:mt-0">
+      <div
+        v-if="appointmentsStore.isDateSelected"
+        class="flex-1 grid grid-cols-1 xl:grid-cols-2 gap-5 mt-10 lg:mt-0"
+      >
         <button
           v-for="hour in appointmentsStore.hours"
-          class="block rounded-lg text-xl font-black p-3"
+          class="block rounded-lg text-xl font-black p-3 disabled:opacity-10"
           :class="
             appointmentsStore.time === hour
               ? 'bg-blue-500 text-white'
               : 'text-blue-500 bg-white'
           "
           @click="appointmentsStore.time = hour"
+          :disabled="appointmentsStore.disableTime(hour) ? true : false"
         >
           {{ hour }}
         </button>
