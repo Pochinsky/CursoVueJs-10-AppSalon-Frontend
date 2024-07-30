@@ -1,7 +1,7 @@
 <script setup>
-import { usUserStore } from "@/stores/user";
+import { useUserStore } from "@/stores/user";
 
-const userStore = usUserStore();
+const userStore = useUserStore();
 </script>
 
 <template>
