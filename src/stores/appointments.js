@@ -103,6 +103,26 @@ export const useAppointmentsStore = defineStore("appointments", () => {
     router.push({ name: "my-appointments" });
   }
 
+  async function cancelAppointment(id) {
+    if (confirm("¿Desea cancelar la cita? ")) {
+      try {
+        const { data } = await AppointmentAPI.delete(id);
+        userStore.userAppointments = userStore.userAppointments.filter(
+          (appointment) => appointment._id !== id
+        );
+        toast.open({
+          message: data.message,
+          type: "success",
+        });
+      } catch (error) {
+        toast.open({
+          message: error.response.data.message,
+          type: "error",
+        });
+      }
+    }
+  }
+
   function clearAppointmentData() {
     appointmentId.value = "";
     services.value = [];
@@ -152,6 +172,7 @@ export const useAppointmentsStore = defineStore("appointments", () => {
     disableTime,
     onServiceSelected,
     saveAppointment,
+    cancelAppointment,
     clearAppointmentData,
     setSelectedAppointment,
   };
