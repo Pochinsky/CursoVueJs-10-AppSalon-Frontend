@@ -10,3 +10,9 @@ export const displayDate = (date) => {
   const newDate = parseISO(date);
   return format(newDate, "PPPP", { locale: es });
 };
+
+export const convertToDDMMYYYY = (isoDate) => {
+  const newDate = new Date(isoDate);
+  const formattedDate = format(newDate, "dd/MM/yyyy");
+  return formattedDate;
+};

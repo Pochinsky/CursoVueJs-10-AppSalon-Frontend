@@ -4,7 +4,7 @@ import { defineStore } from "pinia";
 import AuthAPI from "../api/AuthAPI";
 import AppointmentAPI from "../api/AppointmentAPI";
 
-export const usUserStore = defineStore("user", () => {
+export const useUserStore = defineStore("user", () => {
   const user = ref({});
   const userAppointments = ref([]);
   const loading = ref(true);
@@ -46,6 +46,7 @@ export const usUserStore = defineStore("user", () => {
     loading,
     getUserName,
     noAppointments,
+    getUserAppointments,
     logout,
   };
 });
